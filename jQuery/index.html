@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/20.1.6/js/dx.all.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.6/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.1.6/css/dx.light.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="data.js"></script>
+    <script>
+        let isConditional = true;
+
+$(function () {
+	sales.forEach((sale, index) => {
+		 sale.isApproved = index % 2 !== 0;
+	});
+
+	let pivotGrid = $("#sales")
+		.dxPivotGrid({
+			allowSortingBySummary: true,
+			allowSorting: true,
+			allowFiltering: true,
+			allowExpandAll: true,
+			height: 440,
+			showColumnGrandTotals: false,
+			showColumnTotals: false,
+			showBorders: true,
+			fieldChooser: {
+				enabled: false
+			},
+			export: {
+				enabled: true,
+				fileName: "Sales"
+			},
+			dataSource: {
+				fields: [
+					{
+						caption: "Region",
+						width: 120,
+						dataField: "region",
+						area: "row",
+						expanded: true
+					},
+					{
+						caption: "City",
+						dataField: "city",
+						width: 150,
+						area: "row",
+						selector: function (data) {
+							return data.city + " (" + data.country + ")";
+						}
+					},
+					{
+						dataField: "date",
+						dataType: "date",
+						area: "column",
+						expanded: true
+					},
+					{
+						caption: "Sales",
+						dataType: "number",
+						summaryType: "custom",
+						format: "currency",
+						area: "data",
+						calculateCustomSummary: calculateCustomSummary
+					},
+					{
+						caption: "Approved",
+						dataField: "isApproved",
+						dataType: "boolean",
+						summaryType: "sum",
+						area: "data"
+					}
+				],
+				store: sales
+			}
+		})
+		.dxPivotGrid("instance");
+
+	$("#toggleConditionalSummary").dxCheckBox({
+		value: isConditional,
+		text: "Toggle Conditional Summary Calculation",
+		onValueChanged: function (data) {
+			let ds = pivotGrid.getDataSource(),
+				field = ds.field("Sales");
+
+			isConditional = data.value
+			ds.reload()
+		}
+	});
+});
+
+function calculateCustomSummary(options) {
+	switch (options.summaryProcess) {
+		case "start":
+			options.totalValue = { conditionalVal: 0, rawVal: 0, count: 0 };
+			break;
+		case "calculate":
+			options.totalValue.count += 1;
+			options.totalValue.rawVal += options.value.amount;
+			if (options.value.isApproved) {
+				options.totalValue.conditionalVal += options.value.amount;
+			}
+			break;
+		case "finalize":
+			if (options.totalValue.count === 1 || !isConditional) {
+				// If not conditional, this block will always be run
+				options.totalValue = options.totalValue.rawVal;
+			}  else {
+				options.totalValue = options.totalValue.conditionalVal;
+			}
+	}
+}
+    </script>
+</head>
+
+<body>
+    <div class="dx-viewport demo-container">
+        <div class="long-title"><h3>Sales Amount by Region</h3></div>
+        <div id="sales"></div>
+			<div class="options">
+                <div class="caption">Options</div>
+                <div class="option">
+                    <div id="toggleConditionalSummary"></div>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>
