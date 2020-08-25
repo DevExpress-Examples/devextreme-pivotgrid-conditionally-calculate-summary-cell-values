@@ -68,7 +68,6 @@
                             {
                                 caption: "Approved",
                                 dataField: "isApproved",
-                                dataType: "boolean",
                                 summaryType: "sum",
                                 area: "data"
                             }
@@ -82,8 +81,7 @@
                 value: isConditional,
                 text: "Toggle Conditional Summary Calculation",
                 onValueChanged: function (data) {
-                    let ds = pivotGrid.getDataSource(),
-                        field = ds.field("Sales");
+                    let ds = pivotGrid.getDataSource()
 
                     isConditional = data.value
                     ds.reload()
