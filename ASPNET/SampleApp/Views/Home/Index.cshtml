@@ -1,0 +1,108 @@
+@using SampleApp.Models
+
+<h2 class="content-block">Home</h2>
+<div class="long-title"><h3>Sales Amount by Region</h3></div>
+
+@(Html.DevExtreme().PivotGrid()
+    .ID("sales")
+    .AllowSortingBySummary(true)
+    .AllowSorting(true)
+    .AllowFiltering(true)
+    .AllowExpandAll(true)
+    .Height(440)
+    .ShowColumnGrandTotals(false)
+    .ShowColumnTotals(false)
+    .ShowBorders(true)
+    .FieldChooser(c => c.Enabled(false))
+    .DataSource(d => d
+        .Store(new JS("sales"))
+        .Fields(fields => {
+            fields.Add()
+                    .Caption("Region")
+                    .Width(120)
+                    .DataField("Region")
+                    .Area(PivotGridArea.Row)
+                    .Expanded(true);
+
+            fields.Add()
+                    .Caption("City")
+                    .Width(150)
+                    .DataField("City")
+                    .Area(PivotGridArea.Row)
+                    .Selector(@<text>
+                            function(data) {
+                                return data.City + " (" + data.Country + ")";
+                            }
+                        </text>);
+
+                fields.Add()
+                    .DataField("Date")
+                    .DataType(PivotGridDataType.Date)
+                    .Area(PivotGridArea.Column)
+                    .Expanded(true);
+
+                fields.Add()
+                    .Caption("Sales")
+                    .DataType(PivotGridDataType.Number)
+                    .SummaryType(SummaryType.Custom)
+                    .Format(Format.Currency)
+                    .Area(PivotGridArea.Data)
+                    .CalculateCustomSummary("calculateCustomSummary");
+
+                fields.Add()
+                    .Caption("Approved")
+                    .DataField("isApproved")
+                    .SummaryType(SummaryType.Sum)
+                    .Area(PivotGridArea.Data);
+        })
+    )
+)
+<div class="options">
+    <div class="caption">Options</div>
+    <div class="option">
+        @(Html.DevExtreme().CheckBox()
+            .Value(new JS("isConditional"))
+            .Text("Toggle Conditional Summary Calculation")
+            .OnValueChanged("onValueChanged")
+        )
+    </div>
+</div>
+
+<script src="~/data/sales.js"></script>
+<script>
+    let isConditional = true;
+
+    sales.forEach((sale, index) => {
+        sale.isApproved = index % 2 !== 0;
+    });
+
+    function onValueChanged(data) {
+        let pivotGrid = $("#sales").dxPivotGrid('instance'),
+            ds = pivotGrid.getDataSource();
+
+        isConditional = data.value
+        ds.reload()
+    }
+
+    function calculateCustomSummary(options) {
+        switch (options.summaryProcess) {
+            case "start":
+                options.totalValue = { conditionalVal: 0, rawVal: 0, count: 0 };
+                break;
+            case "calculate":
+                options.totalValue.count += 1;
+                options.totalValue.rawVal += options.value.Amount;
+                if (options.value.isApproved) {
+                    options.totalValue.conditionalVal += options.value.Amount;
+                }
+                break;
+            case "finalize":
+                if (options.totalValue.count === 1 || !isConditional) {
+                    // If not conditional, this block will always be run
+                    options.totalValue = options.totalValue.rawVal;
+                } else {
+                    options.totalValue = options.totalValue.conditionalVal;
+                }
+        }
+    }
+</script>
