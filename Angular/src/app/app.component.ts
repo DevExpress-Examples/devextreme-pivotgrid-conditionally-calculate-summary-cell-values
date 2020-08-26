@@ -73,7 +73,6 @@ export class AppComponent {
             }
             break;
         case "finalize":
-          debugger;
             if (options.totalValue.count === 1 || !this.isConditional) {
                 // If not conditional, this block will always be run
                 options.totalValue = options.totalValue.rawVal;
