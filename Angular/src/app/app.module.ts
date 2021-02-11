@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { DxPivotGridModule, DxCheckBoxModule } from "devextreme-angular"
+import { DxPivotGridModule } from "devextreme-angular/ui/pivot-grid"
+import { DxCheckBoxModule } from "devextreme-angular/ui/check-box"
 
 import { AppComponent } from './app.component';
 
