@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "dgSpecHash": "26bkQ4IIwHg=",
+  "success": false,
+  "projectFilePath": "C:\\wrk\\gh-new\\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\\ASP.NET Core\\SampleApp\\SampleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alisher.amonulloyev\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\alisher.amonulloyev\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\alisher.amonulloyev\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\alisher.amonulloyev\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'C:\\Program Files (x86)\\DevExpress 20.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore' doesn't exist.",
+      "projectPath": "C:\\wrk\\gh-new\\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\\ASP.NET Core\\SampleApp\\SampleApp.csproj",
+      "filePath": "C:\\wrk\\gh-new\\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\\ASP.NET Core\\SampleApp\\SampleApp.csproj",
+      "libraryId": "BuildBundlerMinifier",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'C:\\Program Files (x86)\\DevExpress 20.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore' doesn't exist.",
+      "projectPath": "C:\\wrk\\gh-new\\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\\ASP.NET Core\\SampleApp\\SampleApp.csproj",
+      "filePath": "C:\\wrk\\gh-new\\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\\ASP.NET Core\\SampleApp\\SampleApp.csproj",
+      "libraryId": "DevExtreme.AspNet.Data",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "The local source 'C:\\Program Files (x86)\\DevExpress 20.1\\DevExtreme\\System\\DevExtreme\\Bin\\AspNetCore' doesn't exist.",
+      "projectPath": "C:\\wrk\\gh-new\\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\\ASP.NET Core\\SampleApp\\SampleApp.csproj",
+      "filePath": "C:\\wrk\\gh-new\\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\\ASP.NET Core\\SampleApp\\SampleApp.csproj",
+      "libraryId": "DevExtreme.AspNet.Core",
+      "targetGraphs": []
+    }
+  ]
+}

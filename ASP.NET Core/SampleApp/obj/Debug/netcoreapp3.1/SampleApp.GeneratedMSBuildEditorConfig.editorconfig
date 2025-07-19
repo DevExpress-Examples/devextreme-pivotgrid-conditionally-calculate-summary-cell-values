@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = SampleApp
+build_property.ProjectDir = C:\wrk\gh-new\devextreme-pivotgrid-conditionally-calculate-summary-cell-values\ASP.NET Core\SampleApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

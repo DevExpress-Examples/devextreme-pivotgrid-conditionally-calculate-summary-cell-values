@@ -23,7 +23,7 @@ This example demonstrates how to configure a "data" field, which calculates valu
 - **Vue**
     - [App.vue](Vue/src/App.vue)
 - **ASP.NET**    
-    - [Index.cshtml](ASPNET/SampleApp/Views/Home/Index.cshtml)
+    - [Index.cshtml](ASP.NET%20Core/SampleApp/Views/Home/Index.cshtml)
 
 ## Documentation
 
