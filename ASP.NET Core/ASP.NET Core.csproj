@@ -18,6 +18,12 @@
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
   </Target>
+  <ItemGroup>
+    <Content Remove="wwwroot\data\sales.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\data\sales.js" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DevExtreme.AspNet.Core" Version="25.1.3" />
