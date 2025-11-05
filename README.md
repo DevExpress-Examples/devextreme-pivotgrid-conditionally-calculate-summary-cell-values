@@ -17,13 +17,13 @@ This example demonstrates how to configure a "data" field, which calculates valu
     - [app.component.html](Angular/src/app/app.component.html)
     - [app.component.ts](Angular/src/app/app.component.ts)
 - **jQuery**
-    - [index.html](jQuery/index.html)
+    - [index.js](jQuery/src/index.js)
 - **React**
-    - [App.js](React/src/App.js)
+    - [App.js](React/src/App.tsx)
 - **Vue**
-    - [App.vue](Vue/src/App.vue)
+    - [App.vue](Vue/src/components/HomeContent.vue)
 - **ASP.NET**    
-    - [Index.cshtml](ASP.NET%20Core/SampleApp/Views/Home/Index.cshtml)
+    - [Index.cshtml](ASP.NET%20Core/Views/Home/Index.cshtml)
 
 ## Documentation
 
