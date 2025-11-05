@@ -2,7 +2,7 @@ import 'devextreme/dist/css/dx.material.blue.light.compact.css';
 import {
   useMemo, useState, useRef, useCallback,
 } from 'react';
-import { type DataSourceOptions } from 'devextreme/common/data';
+import PivotGridDataSource from 'devextreme/ui/pivot_grid/data_source';
 import PivotGrid, { FieldChooser, type PivotGridRef } from 'devextreme-react/pivot-grid';
 import CheckBox, { type CheckBoxTypes } from 'devextreme-react/check-box';
 import service, { type Sale } from './service.ts';
@@ -56,7 +56,7 @@ function App(): JSX.Element {
     }
   }, []);
 
-  const dataSource = useMemo<DataSourceOptions>(() => ({
+  const dataSource = useMemo<PivotGridDataSource>(() => new PivotGridDataSource({
     fields: [{
       caption: 'Region',
       width: 120,
