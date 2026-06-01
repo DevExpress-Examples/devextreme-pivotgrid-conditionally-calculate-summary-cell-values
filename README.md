@@ -9,7 +9,11 @@
 
 This example demonstrates how to configure a "data" field, which calculates values depending on another field. Here, the "Sales" field's values are calculated based on the "Approved" field. The calculateCustomSummary function is used for this scenario.
 
-<div align="center"><img alt="PivotGrid for DevExtreme - How to conditionally calculate summary cell values" src="dx-pivotgrid-conditionally-calculate-summary-cell-values.png" /></div>
+<div align="center">
+
+![PivotGrid for DevExtreme - How to conditionally calculate summary cell values](dx-pivotgrid-conditionally-calculate-summary-cell-values.png)
+
+</div>
 
 ## Files to Review
 
