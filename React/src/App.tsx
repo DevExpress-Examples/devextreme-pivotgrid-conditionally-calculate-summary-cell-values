@@ -40,9 +40,9 @@ function App(): JSX.Element {
         break;
       case 'calculate':
         options.totalValue.count += 1;
-        options.totalValue.rawVal += options.value.amount;
+        options.totalValue.rawVal += (options.value.amount as number);
         if (options.value.isApproved) {
-          options.totalValue.conditionalVal += options.value.amount;
+          options.totalValue.conditionalVal += (options.value.amount as number);
         }
         break;
       case 'finalize':
