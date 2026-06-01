@@ -77,10 +77,10 @@ export class AppComponent {
         options.totalValue = { conditionalVal: 0, rawVal: 0, count: 0 };
         break;
       case 'calculate':
-        options.totalValue.count += 1;
-        options.totalValue.rawVal += (options.value.amount as number);
+        options.totalValue.count = (options.totalValue.count as number) + 1;
+        options.totalValue.rawVal = (options.totalValue.rawVal as number) + (options.value.amount as number);
         if (options.value.isApproved) {
-          options.totalValue.conditionalVal += (options.value.amount as number);
+          options.totalValue.conditionalVal = (options.totalValue.conditionalVal as number) + (options.value.amount as number);
         }
         break;
       case 'finalize':
