@@ -88,28 +88,28 @@ const dataSource: PivotGridDataSource = new PivotGridDataSource({
 </script>
 <template>
   <div>
-    <div class='long-title'>
+    <div class="long-title">
       <h3>Conditional Summary Calculation</h3>
     </div>
     <DxPivotGrid
-      ref='pivotGridRef'
-      :allow-sorting-by-summary='true'
-      :allow-sorting='true'
-      :allow-filtering='true'
-      :allow-expand-all='true'
-      :height='440'
-      :show-borders='true'
-      :data-source='dataSource'
+      ref="pivotGridRef"
+      :allow-sorting-by-summary="true"
+      :allow-sorting="true"
+      :allow-filtering="true"
+      :allow-expand-all="true"
+      :height="440"
+      :show-borders="true"
+      :data-source="dataSource"
     >
-      <DxFieldChooser :enabled='false'/>
+      <DxFieldChooser :enabled="false"/>
     </DxPivotGrid>
-    <div class='options'>
-      <div class='caption'>Options</div>
-      <div class='option'>
+    <div class="options">
+      <div class="caption">Options</div>
+      <div class="option">
         <DxCheckBox
-          :value.sync='isConditional'
-          text='Toggle Conditional Summary Calculation'
-          @value-changed='toggleConditionalChanged'
+          v-model:value="isConditional"
+          text="Toggle Conditional Summary Calculation"
+          @value-changed="toggleConditionalChanged"
         />
       </div>
     </div>
