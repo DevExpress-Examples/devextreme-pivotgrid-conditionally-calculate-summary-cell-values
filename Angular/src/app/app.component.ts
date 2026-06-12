@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { DxCheckBoxModule, DxPivotGridComponent, DxPivotGridModule } from 'devextreme-angular';
 import PivotGridDataSource from 'devextreme/ui/pivot_grid/data_source';
 import { Sale, Service } from './app.service';
@@ -15,6 +15,7 @@ interface CustomSummaryValue {
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [DxPivotGridModule, DxCheckBoxModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [Service],
 })
 export class AppComponent {
